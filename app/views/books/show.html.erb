@@ -1,1 +1,5 @@
-<h1>users投稿後の詳細画面</h1>
+<!--<h1>users投稿後の詳細画面</h1>-->
+<%= render 'books/list', book: @book %>
+<h4>Book detail</h4>
+<p><%= @book.title %></p>
+<p><%= @book.body %></p>
