@@ -1,9 +1,28 @@
+<p id="notice"></p>
+<div class="container px-5 px-sm-0">
+ <div class="row">
+  <div class="col-md-3">
 <h1>User info</h1>
 <p><%= image_tag('no_image.jpg') %></p>
-<h4>name</h4>
-<h4><%= user.name %></h4>
-<h4>introduction</h4>
-<h4><%= user.introduction %></h4>
+<table class="table">
+ <tobody>
+  <tr></tr>
+  <tr>
+   <th>name</th>
+   <th><%= user.name %></th>
+  </tr>
+  <tr>
+  <th>introduction</th>
+  <th><%= user.introduction %></th>
+  </tr>
+  </tobody>
+</table>
+<div class="col-4">
+
 <% if @user.id == current_user.id %>
- <p class="fas fa-user-cog" typ="botton"><%= link_to "c",edit_user_path(@user) %></p>
+ <%= link_to "",edit_user_path(@user), class: "fas fa-user-cog btn btn-default btn btn-outline-secondary", :typ=>"botton;", :style=>"width:100px; color:gray;" %>
 <% end %>
+
+  </div>
+ </div>
+</div>

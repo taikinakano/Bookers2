@@ -12,6 +12,7 @@ class BooksController < ApplicationController
 
     def index
         @book = Book.new
+        @books = Book.all
     end
 
     def show
@@ -29,7 +30,7 @@ class BooksController < ApplicationController
     
     private
     def book_params
-        params.require(:post_image).permit(:title, :body)
+        params.require(:book).permit(:title, :body)
     end
 
 end

@@ -24,8 +24,17 @@
  
             <% if user_signed_in? %>
             <li class="nav-item text-white">
-            <i class="fas fa-link"></i>
-            <a href="/users/new", class= "btn btn-dark">About</a>
+            <i class="fas fa-home"></i>
+            <%= link_to "Home", user_path(current_user.id), class: "btn btn-dark" %>
+            <!--<a href="/user/(current_user)", class= "btn btn-dark">Homes</a>-->
+            </li> 
+            <li class="nav-item text-white">
+            <i class="fas fa-users"></i>
+            <a href="/users", class= "btn btn-dark">Users</a>
+            </li> 
+            <li class="nav-item text-white">
+            <i class="fas fa-book-open"></i>
+            <a href="/books", class= "btn btn-dark">Books</a>
             </li> 
             <li class="nav-item ">
             <i class="fas fa-sign-in-alt text-white"></i>
