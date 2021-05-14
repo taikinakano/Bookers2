@@ -67,3 +67,4 @@ gem "refile-mini_magick"
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
+gem 'kaminari','~> 1.2.1'
