@@ -8,13 +8,14 @@ class UsersController < ApplicationController
     end
 
     def index
-
+       @user = current_user
+       @users = User.all
     end
 
     def show
         @book = Book.new #投稿の記述
         @user = User.find(params[:id]) #プロフィールを表示させる記述
-        #@books = @user.books.page(params[:page]).reverse_order #user_idと関連付けられた投稿を表示する記述
+        @books = @user.books.page(params[:page]).reverse_order #user_idと関連付けられた投稿を表示する記述
     end
 
     def edit
