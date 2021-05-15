@@ -11,8 +11,8 @@ class BooksController < ApplicationController
     end
 
     def index
-        @user = User.find(params[:id]) #プロフィールを表示させるための記述
-        @book = Book.new #新規投稿を行う記述
+        @user = User.all #プロフィールを表示させるための記述
+        #@book = Book.new #新規投稿を行う記述
         @books = Book.all #indexに全ての投稿を表示させるための記述
     end
 
@@ -22,7 +22,7 @@ class BooksController < ApplicationController
     end
 
     def edit
-      # @user = User.find(params[:id]) 
+      # @user = User.find(params[:id]) #マイページuserで指定されていればbookで同じ記述を書かなくてよい？
     end
 
     def update
