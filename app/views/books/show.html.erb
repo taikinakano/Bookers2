@@ -13,16 +13,25 @@
   <tr>
    <td>
     <%= attachment_image_tag @user, :profile_image, :fill, 20, 20, fallback: "no_image.jpg" %>
+    <p>
+     <%= link_to user_path(current_user.id) do %>
+     <%= @user.name %></a>
+     <% end %>
+    </p>
    </td>
-   <td><%= @book.title %></td>
+   <td>
+    <%= link_to book_path(current_user.id) do %>
+    <%= @book.title %>
+    <% end %>
+    </td>
    <td><%= @book.body %></td>
  <% if @book.user == current_user %>
-   <td><%= link_to "Edit", edit_book_path(@book) %></td>
-   <td><%= link_to "Destroy", book_path(@book), method: :delete %></td>
+   <td><%= link_to "Edit", edit_book_path(@book), class: "btn btn-success" %></td>
+   <td><%= link_to "Destroy", book_path(@book), class: "btn btn-danger", method: :delete %></td>
  <% end %>
   </tr>
   </tbody>
-  </tabl>
+  </table>
   </div>
   </div>
  </div>

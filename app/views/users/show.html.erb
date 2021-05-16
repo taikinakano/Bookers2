@@ -10,30 +10,34 @@
 <h2>Books</h2>
 
 <table class="table table-hover table-inverse">
-  <thad>
+  <thead>
    <tr>
     <th></th>
     <th>Title</th>
     <th>Option</th>
     <th colspan="3"></th>
    </tr>
-  </thad>
+  </thead>
   <% @books.each do |book| %>
   <tbody>
    <tr>
     <td>
-    <%= link_to book_path(book.id) do %>
+    <%= link_to user_path(current_user.id) do %>
      <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"  %>
     <% end %>
     </td>
-    <td><%= book.title %></td>
+    <td>
+     <%= link_to book_path(book.id) do %>
+      <%= book.title %>
+     <% end %>
+     </td>
     <td><%= book.body %></td>
    </tr>
+   </tbody>
    <% end %>
-</tabl>
+</table>
 </div>
 <%= paginate @books %>
-
-</div>
-</div>
+  </div>
+ </div>
 </div>
