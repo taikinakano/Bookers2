@@ -1,10 +1,19 @@
 <!--<h1>本の編集画面</h1>-->
 
-<p id="notice"></p>
+
 <div class="container">
  <div class="row">
   <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
   <h2>Editing Book</h2>
+  <div id="notice">
+<% if @book.errors.any? %>
+  <p><%= @book.errors.count %>件のエラーが発生しました</p>
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+</div>
    <%= form_with model:@book, local:true do |f| %>
    <form>
    <div class="form-group">
