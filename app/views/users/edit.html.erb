@@ -1,9 +1,16 @@
 <!--<h1>マイページ編集画面です</h1>-->
-<p id="notice"></p>
 <div class="container">
  <div class="row">
   <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
     <h2 for="user_name">User info</h2>
+    <div id="notice">
+     <% if @user.errors.any? %>
+      <p><%= @user.errors.count %>件のエラーが発生しました。</p>
+      <% @user.errors.full_messages.each do |message| %>
+       <%= message %>
+      <% end %>
+    <% end %>
+    </div>
     <%= form_with model:@user, local:true do |f| %>
      <form>
      <div class="form-group">
