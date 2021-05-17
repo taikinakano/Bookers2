@@ -1,5 +1,5 @@
 <!--<h1>users投稿後の詳細画面</h1>-->
-<%= flash[:notice] %>
+<div class="text-success"><%= flash[:notice] %></div>
 <div class="container">
  <div class="row">
   <div class="col-md-3">
@@ -12,7 +12,7 @@
  <tbody>
   <tr>
    <td>
-    <%= attachment_image_tag @user, :profile_image, :fill, 20, 20, fallback: "no_image.jpg" %>
+    <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg" %>
     <p>
      <%= link_to user_path(current_user.id) do %>
      <%= @user.name %></a>

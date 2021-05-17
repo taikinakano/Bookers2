@@ -3,12 +3,14 @@
  <div class="row">
   <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
     <h2 for="user_name">User info</h2>
-    <div id="notice">
+    <div id="notice" class="text-danger">
      <% if @user.errors.any? %>
-      <p><%= @user.errors.count %>件のエラーが発生しました。</p>
+      <h3><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
+      <ul>
       <% @user.errors.full_messages.each do |message| %>
-       <%= message %>
+       <li><%= message %></li>
       <% end %>
+      </ul>
     <% end %>
     </div>
     <%= form_with model:@user, local:true do |f| %>

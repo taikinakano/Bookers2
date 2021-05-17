@@ -7,8 +7,7 @@
   </div>
   <div class="col-md-8 offset-md-1">
    <h2>Users</h2>
-   <% @users.each do |user| %>
-   <table class="table">
+   <table class="table table-hover table-inverse">
     <thead>
     <tr>
       <th>image</th>
@@ -16,15 +15,17 @@
       <th colspan="3"></th>
     </tr>
     </thead>
+    <% @users.each do |user| %>
     <tbody>
     <tr>
-    <td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: 'no_image.jpg' %></td> <!--5章記述-->
-    <td>name:<%= user.name %></td>
+    <td><%= attachment_image_tag @user, :profile_image, format:"jpg",  fallback: 'no_image.jpg', size: "50x50" %></td> <!--5章記述-->
+    <td><%= user.name %></td>
     <td><%= link_to "show" , user_path(user.id) %></td>
     </tr>
     </tbody>
+    <% end %>
     </table>
-<% end %>
+
   </div>
  </div>
 </div>

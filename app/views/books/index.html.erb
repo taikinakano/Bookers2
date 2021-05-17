@@ -29,8 +29,8 @@
   <tr>
   <td>
     <p>
-     <%= link_to user_path(current_user.id) do %>
-     <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: 'no_image.jpg' %><!--5章記述-->
+     <%= link_to user_path(book.id) do %>
+     <%= attachment_image_tag @user, :profile_image, fallback: 'no_image.jpg', size: "50x50" %><!--5章記述-->
      <% end %>
     </p>
   </td>
