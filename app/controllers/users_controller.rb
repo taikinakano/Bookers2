@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     end
 
     def index
+       @book = Book.new
        @user = current_user
        @users = User.all
     end
@@ -17,13 +18,18 @@ class UsersController < ApplicationController
     end
 
     def edit
+        if @user_id == current_user.id
         @user = User.find(params[:id]) #プロフィールの編集
+        else
+        @user = User.all
+        render :show
+        end
     end
 
     def update
         @user = User.find(params[:id]) #プロフィール更新の記述
         if @user.update(user_params)
-        flash[:notice] = "You have updated user successfully."
+        flash[:notice] = 'You have updated user successfully.'
         redirect_to user_path(@user.id)
         else
         render :edit

@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-
+    before_action :authenticate_user!
     def new
     end
 
@@ -24,6 +24,7 @@ class BooksController < ApplicationController
 
     def show
         @book = Book.find(params[:id]) #投稿を表示させる記述
+        @new_book = Book.new
         @user = @book.user #部分テキストを表示させる記述
     end
 
@@ -33,8 +34,9 @@ class BooksController < ApplicationController
 
     def update
         @book = Book.find(params[:id])
+ 
         if @book.update(book_params)
-        flash[:notice] = "You have updated book successfully"
+        flash[:notice] = 'You have updated book successfully'
         redirect_to book_path(@book.id)
         else
         render :edit
