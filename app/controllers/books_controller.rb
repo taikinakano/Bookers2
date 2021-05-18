@@ -1,5 +1,14 @@
 class BooksController < ApplicationController
     before_action :authenticate_user!
+    before_action :correct_post,only: [:edit]
+
+    def correct_post
+          @book = Book.find(params[:id])
+        unless @book.user.id == current_user.id
+          redirect_to user_path(current_user)
+        end
+    end
+
     def new
     end
 
@@ -34,7 +43,7 @@ class BooksController < ApplicationController
 
     def update
         @book = Book.find(params[:id])
- 
+
         if @book.update(book_params)
         flash[:notice] = 'You have updated book successfully'
         redirect_to book_path(@book.id)

@@ -18,11 +18,11 @@ class UsersController < ApplicationController
     end
 
     def edit
-        if @user_id == current_user.id
         @user = User.find(params[:id]) #プロフィールの編集
+        if @user.id == current_user.id
+         render :edit
         else
-        @user = User.all
-        render :show
+         redirect_to user_path(current_user)
         end
     end
 
